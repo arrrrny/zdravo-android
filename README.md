@@ -12,6 +12,11 @@ A secure, decentralized, peer-to-peer messaging app that works over Bluetooth me
 
 This is the fork of the **Android port** of the original [bitchat Android app](https://github.com/callebtc/bitchat-android), maintaining 100% protocol compatibility for cross-platform communication. A HUGE thank you to the [original developer](https://github.com/callebtc) for their work on the Android port.
 
+## This Fork is mirroring the [bitchat Android app](https://github.com/callebtc/bitchat-android)
+
+- **Bug Reports**: [Create an issue](https://github.com/callebtc/bitchat-android/issues) with device info and logs
+- **Feature Requests**: [Start a discussion](https://github.com/callebtc/bitchat-android/discussions)
+
 ## About This Port
 
 This Android implementation maintains full protocol compatibility with the original iOS version, allowing seamless communication between iPhone and Android users in the same mesh network. All core features including encryption, channels, private messaging, and mesh networking work identically across platforms.
