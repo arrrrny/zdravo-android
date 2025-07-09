@@ -12,10 +12,9 @@ A secure, decentralized, peer-to-peer messaging app that works over Bluetooth me
 
 This is the fork of the **Android port** of the original [bitchat Android app](https://github.com/callebtc/bitchat-android), maintaining 100% protocol compatibility for cross-platform communication. A HUGE thank you to the [original developer](https://github.com/callebtc) for their work on the Android port.
 
-## This Fork is mirroring the [bitchat Android app](https://github.com/callebtc/bitchat-android)
+## Download Zdravo at [Google Play Store](https://play.google.com/store/apps/details?id=dev.zuzu.zdravo)
 
-- **Bug Reports**: [Create an issue](https://github.com/callebtc/bitchat-android/issues) with device info and logs
-- **Feature Requests**: [Start a discussion](https://github.com/callebtc/bitchat-android/discussions)
+
 
 ## About This Port
 
