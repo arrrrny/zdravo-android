@@ -16,9 +16,9 @@ This is the fork of the **Android port** of the original [bitchat Android app](h
 
 
 
-## About This Port
+## Install bitchat
 
-This Android implementation maintains full protocol compatibility with the original iOS version, allowing seamless communication between iPhone and Android users in the same mesh network. All core features including encryption, channels, private messaging, and mesh networking work identically across platforms.
+You can download the latest version of bitchat for Android from the [GitHub Releases page](https://github.com/callebtc/bitchat-android/releases).
 
 **iOS Version**: [github.com/arrrrny/zdravo](https://github.com/arrrrny/zdravo)
 

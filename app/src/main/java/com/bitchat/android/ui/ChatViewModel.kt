@@ -258,7 +258,12 @@ class ChatViewModel(application: Application) : AndroidViewModel(application), B
             meshService.startServices()
         }
     }
-
+    
+    fun setAppBackgroundState(inBackground: Boolean) {
+        // Forward to connection manager for power optimization
+        meshService.connectionManager.setAppBackgroundState(inBackground)
+    }
+    
     // MARK: - Command Autocomplete (delegated)
 
     fun updateCommandSuggestions(input: String) {
