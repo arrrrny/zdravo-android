@@ -34,7 +34,7 @@ fun NicknameEditor(
 ) {
     val colorScheme = MaterialTheme.colorScheme
     val focusManager = LocalFocusManager.current
-    
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
@@ -44,7 +44,7 @@ fun NicknameEditor(
             style = MaterialTheme.typography.bodyMedium,
             color = colorScheme.primary.copy(alpha = 0.8f)
         )
-        
+
         BasicTextField(
             value = value,
             onValueChange = onValueChange,
@@ -55,7 +55,7 @@ fun NicknameEditor(
             cursorBrush = SolidColor(colorScheme.primary),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
             keyboardActions = KeyboardActions(
-                onDone = { 
+                onDone = {
                     focusManager.clearFocus()
                 }
             ),
@@ -75,7 +75,7 @@ fun PeerCounter(
     modifier: Modifier = Modifier
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    
+
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.clickable { onClick() }
@@ -89,7 +89,7 @@ fun PeerCounter(
             )
             Spacer(modifier = Modifier.width(6.dp))
         }
-        
+
         if (hasUnreadPrivateMessages.isNotEmpty()) {
             Text(
                 text = "✉",
@@ -99,7 +99,7 @@ fun PeerCounter(
             )
             Spacer(modifier = Modifier.width(6.dp))
         }
-        
+
         Icon(
             imageVector = Icons.Default.Person,
             contentDescription = "Connected peers",
@@ -114,7 +114,7 @@ fun PeerCounter(
             fontSize = 16.sp,
             fontWeight = FontWeight.Medium
         )
-        
+
         if (joinedChannels.isNotEmpty()) {
             Text(
                 text = " · ⧉ ${joinedChannels.size}",
@@ -140,7 +140,7 @@ fun ChatHeaderContent(
 ) {
     val colorScheme = MaterialTheme.colorScheme
     var tripleClickCount by remember { mutableStateOf(0) }
-    
+
     when {
         selectedPrivatePeer != null -> {
             // Private chat header
@@ -192,7 +192,7 @@ private fun PrivateChatHeader(
 ) {
     val colorScheme = MaterialTheme.colorScheme
     val peerNickname = peerNicknames[peerID] ?: peerID
-    
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -205,9 +205,9 @@ private fun PrivateChatHeader(
                 color = colorScheme.primary
             )
         }
-        
+
         Spacer(modifier = Modifier.weight(1f))
-        
+
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text("🔒", fontSize = 16.sp) // Slightly larger
             Spacer(modifier = Modifier.width(4.dp))
@@ -217,9 +217,9 @@ private fun PrivateChatHeader(
                 color = Color(0xFFFF8C00) // Orange
             )
         }
-        
+
         Spacer(modifier = Modifier.weight(1f))
-        
+
         // Favorite button
         IconButton(onClick = onToggleFavorite) {
             Text(
@@ -239,7 +239,7 @@ private fun ChannelHeader(
     onSidebarClick: () -> Unit
 ) {
     val colorScheme = MaterialTheme.colorScheme
-    
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -252,18 +252,18 @@ private fun ChannelHeader(
                 color = colorScheme.primary
             )
         }
-        
+
         Spacer(modifier = Modifier.weight(1f))
-        
+
         Text(
             text = "channel: $channel",
             style = MaterialTheme.typography.titleMedium,
             color = Color(0xFF0080FF), // Blue
             modifier = Modifier.clickable { onSidebarClick() }
         )
-        
+
         Spacer(modifier = Modifier.weight(1f))
-        
+
         TextButton(onClick = onLeaveChannel) {
             Text(
                 text = "leave",
@@ -288,7 +288,7 @@ private fun MainHeader(
     val hasUnreadChannels by viewModel.unreadChannelMessages.observeAsState(emptyMap())
     val hasUnreadPrivateMessages by viewModel.unreadPrivateMessages.observeAsState(emptySet())
     val isConnected by viewModel.isConnected.observeAsState(false)
-    
+
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -296,20 +296,20 @@ private fun MainHeader(
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(
-                text = "bitchat*",
+                text = "Zdravo*",
                 style = MaterialTheme.typography.headlineSmall,
                 color = colorScheme.primary,
                 modifier = Modifier.clickable { onTitleClick() }
             )
-            
+
             Spacer(modifier = Modifier.width(8.dp))
-            
+
             NicknameEditor(
                 value = nickname,
                 onValueChange = onNicknameChange
             )
         }
-        
+
         PeerCounter(
             connectedPeers = connectedPeers.filter { it != viewModel.meshService.myPeerID },
             joinedChannels = joinedChannels,

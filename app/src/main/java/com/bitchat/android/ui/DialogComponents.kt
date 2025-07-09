@@ -24,7 +24,7 @@ fun PasswordPromptDialog(
 ) {
     if (show && channelName != null) {
         val colorScheme = MaterialTheme.colorScheme
-        
+
         AlertDialog(
             onDismissRequest = onDismiss,
             title = {
@@ -42,7 +42,7 @@ fun PasswordPromptDialog(
                         color = colorScheme.onSurface
                     )
                     Spacer(modifier = Modifier.height(8.dp))
-                    
+
                     OutlinedTextField(
                         value = passwordInput,
                         onValueChange = onPasswordChange,
@@ -88,12 +88,12 @@ fun AppInfoDialog(
 ) {
     if (show) {
         val colorScheme = MaterialTheme.colorScheme
-        
+
         AlertDialog(
             onDismissRequest = onDismiss,
             title = {
                 Text(
-                    text = "About bitchat*",
+                    text = "About Zdravo*",
                     style = MaterialTheme.typography.titleMedium,
                     color = colorScheme.onSurface
                 )
