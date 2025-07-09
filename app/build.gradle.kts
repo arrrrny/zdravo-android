@@ -34,7 +34,7 @@ android {
         create("release") {
             keyAlias = keystoreProperties["keyAlias"] as String?
             keyPassword = keystoreProperties["keyPassword"] as String?
-            storeFile = keystoreProperties["storeFile"]?.let { rootProject.file(it.toString()) }
+            storeFile = keystoreProperties["storeFile"]?.let { file(it.toString()) }
             storePassword = keystoreProperties["storePassword"] as String?
         }
     }
