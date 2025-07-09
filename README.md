@@ -1,14 +1,14 @@
-# bitchat for Android
+# Zdravo for Android
 
 A secure, decentralized, peer-to-peer messaging app that works over Bluetooth mesh networks. No internet required, no servers, no phone numbers - just pure encrypted communication.
 
-This is the **Android port** of the original [bitchat iOS app](https://github.com/jackjackbits/bitchat), maintaining 100% protocol compatibility for cross-platform communication.
+This is the fork of the **Android port** of the original [bitchat Android app](https://github.com/callebtc/bitchat-android), maintaining 100% protocol compatibility for cross-platform communication. A HUGE thank you to the [original developer](https://github.com/callebtc) for their work on the Android port.
 
 ## About This Port
 
 This Android implementation maintains full protocol compatibility with the original iOS version, allowing seamless communication between iPhone and Android users in the same mesh network. All core features including encryption, channels, private messaging, and mesh networking work identically across platforms.
 
-**Original iOS Version**: [github.com/jackjackbits/bitchat](https://github.com/jackjackbits/bitchat)
+**iOS Version**: [github.com/arrrrny/zdravo](https://github.com/arrrrny/zdravo)
 
 ## License
 
@@ -16,7 +16,7 @@ This project is released into the public domain. See the [LICENSE](LICENSE) file
 
 ## Features
 
-- **✅ Cross-Platform Compatible**: Full protocol compatibility with iOS bitchat
+- **✅ Cross-Platform Compatible**: Full protocol compatibility with iOS Zdravo
 - **✅ Decentralized Mesh Network**: Automatic peer discovery and multi-hop message relay over Bluetooth LE
 - **✅ End-to-End Encryption**: X25519 key exchange + AES-256-GCM for private messages
 - **✅ Channel-Based Chats**: Topic-based group messaging with optional password protection
@@ -28,56 +28,6 @@ This project is released into the public domain. See the [LICENSE](LICENSE) file
 - **✅ Modern Android UI**: Jetpack Compose with Material Design 3
 - **✅ Dark/Light Themes**: Terminal-inspired aesthetic matching iOS version
 - **✅ Battery Optimization**: Adaptive scanning and power management
-
-## Android Setup
-
-### Prerequisites
-
-- **Android Studio**: Arctic Fox (2020.3.1) or newer
-- **Android SDK**: API level 26 (Android 8.0) or higher
-- **Kotlin**: 1.8.0 or newer
-- **Gradle**: 7.0 or newer
-
-### Build Instructions
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/bitchat-android.git
-   cd bitchat-android
-   ```
-
-2. **Open in Android Studio:**
-   ```bash
-   # Open Android Studio and select "Open an Existing Project"
-   # Navigate to the bitchat-android directory
-   ```
-
-3. **Build the project:**
-   ```bash
-   ./gradlew build
-   ```
-
-4. **Install on device:**
-   ```bash
-   ./gradlew installDebug
-   ```
-
-### Development Build
-
-For development builds with debugging enabled:
-
-```bash
-./gradlew assembleDebug
-adb install -r app/build/outputs/apk/debug/app-debug.apk
-```
-
-### Release Build
-
-For production releases:
-
-```bash
-./gradlew assembleRelease
-```
 
 ## Android-Specific Requirements
 
@@ -114,10 +64,11 @@ The app requires the following permissions (automatically requested):
 ### Getting Started
 
 1. **Install the app** on your Android device (requires Android 8.0+)
+   - Download from [Google Play Store](https://play.google.com/store/apps/details?id=dev.zuzu.zdravo) or build from source
 2. **Grant permissions** for Bluetooth and location when prompted
-3. **Launch bitchat** - it will auto-start mesh networking
+3. **Launch Zdravo** - it will auto-start mesh networking
 4. **Set your nickname** or use the auto-generated one
-5. **Connect automatically** to nearby iOS and Android bitchat users
+5. **Connect automatically** to nearby iOS and Android Zdravo users
 6. **Join a channel** with `/j #general` or start chatting in public
 7. **Messages relay** through the mesh network to reach distant peers
 
@@ -176,7 +127,7 @@ The app requires the following permissions (automatically requested):
 ## Technical Architecture
 
 ### Binary Protocol
-bitchat uses an efficient binary protocol optimized for Bluetooth LE:
+Zdravo uses an efficient binary protocol optimized for Bluetooth LE:
 - Compact packet format with 1-byte type field
 - TTL-based message routing (max 7 hops)
 - Automatic fragmentation for large messages
@@ -220,73 +171,37 @@ bitchat uses an efficient binary protocol optimized for Bluetooth LE:
 
 The Android implementation maintains 100% binary protocol compatibility with iOS:
 - **Header Format**: Identical 13-byte header structure
-- **Packet Types**: Same message types and routing logic  
+- **Packet Types**: Same message types and routing logic
 - **Encryption**: Identical cryptographic algorithms and key exchange
 - **UUIDs**: Same Bluetooth service and characteristic identifiers
 - **Fragmentation**: Compatible message fragmentation for large content
 
-## Publishing to Google Play
-
-### Preparation
-
-1. **Update version information:**
-   ```kotlin
-   // In app/build.gradle.kts
-   defaultConfig {
-       versionCode = 2  // Increment for each release
-       versionName = "1.1.0"  // User-visible version
-   }
-   ```
-
-2. **Create a signed release build:**
-   ```bash
-   ./gradlew assembleRelease
-   ```
-
-3. **Generate app bundle (recommended for Play Store):**
-   ```bash
-   ./gradlew bundleRelease
-   ```
-
-### Play Store Requirements
-
-- **Target API**: Latest Android API (currently 34)
-- **Privacy Policy**: Required for apps requesting sensitive permissions
-- **App Permissions**: Justify Bluetooth and location usage
-- **Content Rating**: Complete questionnaire for age-appropriate content
-
-### Distribution
-
-- **Google Play Store**: Main distribution channel
-- **F-Droid**: For open-source distribution
-- **Direct APK**: For testing and development
-
 ## Cross-Platform Communication
 
-This Android port enables seamless communication with the original iOS bitchat app:
+This Android port enables seamless communication with the iOS Zdravo app:
 
 - **iPhone ↔ Android**: Full bidirectional messaging
 - **Mixed Groups**: iOS and Android users in same channels
 - **Feature Parity**: All commands and encryption work across platforms
 - **Protocol Sync**: Identical message format and routing behavior
 
-**iOS Version**: For iPhone/iPad users, get the original bitchat at [github.com/jackjackbits/bitchat](https://github.com/jackjackbits/bitchat)
+**iOS Version**: For iPhone/iPad users, get the Zdravo IOS [github.com/arrrrny/zdravo](https://github.com/arrrrny/zdravo)
 
 ## Contributing
 
 Contributions are welcome! Key areas for enhancement:
 
 1. **Performance**: Battery optimization and connection reliability
-2. **UI/UX**: Additional Material Design 3 features  
+2. **UI/UX**: Additional Material Design 3 features
 3. **Security**: Enhanced cryptographic features
 4. **Testing**: Unit and integration test coverage
 5. **Documentation**: API documentation and development guides
 
 ## Support & Issues
 
-- **Bug Reports**: [Create an issue](../../issues) with device info and logs
-- **Feature Requests**: [Start a discussion](../../discussions) 
+- **Bug Reports**: [Create an issue](https://github.com/callebtc/bitchat-android/issues) with device info and logs
+- **Feature Requests**: [Start a discussion](https://github.com/callebtc/bitchat-android/discussions)
 - **Security Issues**: Email security concerns privately
-- **iOS Compatibility**: Cross-reference with [original iOS repo](https://github.com/jackjackbits/bitchat)
+- **iOS Compatibility**: Cross-reference with [iOS repository](github.com/arrrrny/zdravo)
 
-For iOS-specific issues, please refer to the [original iOS bitchat repository](https://github.com/jackjackbits/bitchat).
+For iOS-specific issues, please refer to the [iOS repository](github.com/arrrrny/zdravo).

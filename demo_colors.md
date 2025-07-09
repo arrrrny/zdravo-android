@@ -1,6 +1,6 @@
 # Username Color Feature Demo
 
-The bitchat Android app already has the username color feature fully implemented! Here's how it works:
+The Zdravo Android app already has the username color feature fully implemented! Here's how it works:
 
 ## How It Works
 
@@ -14,7 +14,7 @@ The bitchat Android app already has the username color feature fully implemented
 The system uses these 16 terminal-friendly colors for other users:
 
 - 🟢 Bright Green (#00FF00)
-- 🔵 Cyan (#00FFFF)  
+- 🔵 Cyan (#00FFFF)
 - 🟡 Yellow (#FFFF00)
 - 🔴 Magenta (#FF00FF)
 - 🟦 Bright Blue (#0080FF)

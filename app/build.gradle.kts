@@ -1,7 +1,16 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
+}
+
+val keystoreProperties = Properties()
+val keystorePropertiesFile = rootProject.file("key.properties")
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
 android {
@@ -9,15 +18,24 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.bitchat.android"
+        applicationId = "dev.zuzu.zdravo"
         minSdk = 26  // API 26 for proper BLE support
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
+        }
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String?
+            keyPassword = keystoreProperties["keyPassword"] as String?
+            storeFile = keystoreProperties["storeFile"]?.let { rootProject.file(it.toString()) }
+            storePassword = keystoreProperties["storePassword"] as String?
         }
     }
 
@@ -64,40 +82,40 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
-    
+
     // AppCompat for theme support
     implementation("androidx.appcompat:appcompat:1.6.1")
-    
+
     // ViewModel and LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.compose.runtime:runtime-livedata")
-    
+
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.6")
-    
+
     // Permissions
     implementation("com.google.accompanist:accompanist-permissions:0.32.0")
-    
+
     // Cryptography
     implementation("org.bouncycastle:bcprov-jdk15on:1.70")
     implementation("com.google.crypto.tink:tink-android:1.10.0")
-    
+
     // JSON
     implementation("com.google.code.gson:gson:2.10.1")
-    
+
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    
+
     // Bluetooth
     implementation("no.nordicsemi.android:ble:2.6.1")
-    
+
     // Compression
     implementation("org.lz4:lz4-java:1.8.0")
-    
+
     // Security preferences
     implementation("androidx.security:security-crypto:1.1.0-alpha06")
-    
+
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
