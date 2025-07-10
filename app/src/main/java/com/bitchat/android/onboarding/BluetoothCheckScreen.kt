@@ -106,7 +106,7 @@ private fun BluetoothDisabledContent(
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth()
                 )
-                
+
                 Text(
                     text = "• Discover nearby users\n" +
                             "• Create mesh network connections\n" +
@@ -222,7 +222,7 @@ private fun BluetoothCheckingContent(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "bitchat*",
+            text = "Zdravo*",
             style = MaterialTheme.typography.headlineLarge.copy(
                 fontFamily = FontFamily.Monospace,
                 fontWeight = FontWeight.Bold,

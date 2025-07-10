@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun InitializingScreen() {
     val colorScheme = MaterialTheme.colorScheme
-    
+
     // Animated rotation for the loading indicator
     val infiniteTransition = rememberInfiniteTransition(label = "loading")
     val rotationAngle by infiniteTransition.animateFloat(
@@ -61,7 +61,7 @@ fun InitializingScreen() {
         ) {
             // App title
             Text(
-                text = "bitchat*",
+                text = "Zdravo*",
                 style = MaterialTheme.typography.headlineLarge.copy(
                     fontFamily = FontFamily.Monospace,
                     fontWeight = FontWeight.Bold,
@@ -96,7 +96,7 @@ fun InitializingScreen() {
                         color = colorScheme.onSurface.copy(alpha = 0.7f)
                     )
                 )
-                
+
                 // Animated dots
                 dots.forEach { alpha ->
                     Text(
@@ -132,7 +132,7 @@ fun InitializingScreen() {
                         ),
                         textAlign = TextAlign.Center
                     )
-                    
+
                     Text(
                         text = "This should only take a few seconds",
                         style = MaterialTheme.typography.bodySmall.copy(
